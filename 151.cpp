@@ -4,12 +4,12 @@ public:
         int slow=0,fast=0;
         if(s.size()==0)return ;
         while(fast<s.size()&&s[fast]==' ')++fast;//去除开头空格
-        while(fast<s.size()){//去除中间空格
-            if(s[fast]==' '&&s[fast-1]==' ')++fast;
+        while(fast<s.size()){
+            if(s[fast]==' '&&s[fast-1]==' ')++fast;//去除中间空格
             else s[slow++]=s[fast++];
         }
-        while(s[slow]==' ')--slow;//去除尾部空格
-        s.resize(slow+1);
+        // while(s[slow]==' ')--slow;//去除尾部空格
+        s.resize(s[slow-1]==' '?slow-1:slow);
         return;
     }
     string reverseWords(string s) {
